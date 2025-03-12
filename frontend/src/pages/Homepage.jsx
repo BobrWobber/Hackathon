@@ -1,6 +1,7 @@
-import { Box, Button, Container, Heading, Text, Link } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { ColorModeButton } from "../components/ui/color-mode"
+import { Link } from "react-router-dom";
 
 const MotionBox = motion(Box);
 
@@ -23,8 +24,8 @@ export default function HomePage() {
         <Text fontSize="xl" maxW="600px" mb={6}>
           Discover how our innovative solution can make an impact. Join us on this journey!
         </Text>
-        <Link to={"/chatbot"}>
-          <Button bg="blue" size="lg">
+        <Link to={"/"}>
+          <Button bg="orange.300" size="x1">
             Go to ChatBot
           </Button>
         </Link>

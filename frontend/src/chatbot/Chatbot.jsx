@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './css/styles.css';
+import { Link } from 'react-router-dom';
 
 const Chatbot = () => {
   useEffect(() => {
@@ -124,9 +125,11 @@ const Chatbot = () => {
               <a href="#download" className="hero__button btn">
                 <i className="fa-brands fa-apple"></i> For Apple
               </a>
+              <Link to="/secondpage" className="hero__button btn">
               <a href="#download" className="hero__button btn">
-                <i className="fa-brands fa-android"></i> For Android
+                <i className="fa-brands fa-android"></i> Got to Second Page
               </a>
+              </Link>
             </div>
           </div>
           <div className="hero__image">

@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { Routes, Route } from 'react-router-dom'
 import Chatbot from './chatbot/Chatbot'
-// import HomePage from './pages/HomePage'
+import HomePage from './pages/HomePage'
 // import Navbar from './components/ui/Navbar'
 
 
@@ -12,7 +12,7 @@ const App = () => {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Chatbot />} />
-        {/* <Route path="/chatbot" element={<Chatbot />} /> */}
+        <Route path="/secondpage" element={<HomePage />} />
       </Routes>
     </Box>
   )
