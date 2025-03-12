@@ -163,4 +163,50 @@ const Chatbot = () => {
   );
 };
 
+
+// COMMENT JSX REACT SCRIPT
+import { useState } from 'react';
+
+import {
+  Webchat,
+  WebchatProvider,
+  Fab,
+  getClient,
+  Configuration,
+} from '@botpress/webchat';
+
+const clientId = "a7d07157-0a08-4434-b9f2-ac4f2fdd446c";
+
+const configuration: Configuration = {
+  color: '#000',
+};
+
+export default function App() {
+  const client = getClient({
+    clientId,
+  });
+
+  const [isWebchatOpen, setIsWebchatOpen] = useState(false);
+
+  const toggleWebchat = () => {
+    setIsWebchatOpen((prevState) => !prevState);
+  };
+
+  return (
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <WebchatProvider client={client} configuration={configuration}>
+        <Fab onClick={toggleWebchat} />
+        <div
+          style={{
+            display: isWebchatOpen ? 'block' : 'none',
+          }}
+        >
+          <Webchat />
+        </div>
+      </WebchatProvider>
+    </div>
+  );
+}
+
+
 export default Chatbot;
