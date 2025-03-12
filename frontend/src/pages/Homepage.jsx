@@ -2,8 +2,9 @@ import { Box, Button, Container, Heading, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { ColorModeButton } from "../components/ui/color-mode"
 import { Link } from "react-router-dom";
+import { Chatbot } from "./Chatbot";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function HomePage() {
   return (
@@ -29,6 +30,7 @@ export default function HomePage() {
             Go to ChatBot
           </Button>
         </Link>
+        <Chatbot />
       </MotionBox>
     </Container>
   );
