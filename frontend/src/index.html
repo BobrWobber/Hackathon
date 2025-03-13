@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="icon" href="./images/toni_img.png" />
+    <title>Bürgerservice Toni | Kundensupport</title>
+  </head>
+  <body>
+    <navbar class="navbar">
+      <div class="navbar__container container">
+        <div class="navbar__logo">
+          <!-- <img src="./images/toni_img.png" alt="" /> -->
+        </div>
+        <div class="navbar__menu">
+          <ul class="navbar__menu-list">
+            <li class="navbar__menu-item">
+              <a href="index.html" class="navbar__menu-link">Home</a>
+            </li>
+            <li class="navbar__menu-item">
+              <a href="index.html#features" class="navbar__menu-link"
+                >Features</a
+              >
+            </li>
+            <li class="navbar__menu-item">
+              <a href="index.html#details" class="navbar__menu-link">Details</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mobile Menu & Hamburger Icon -->
+        <div class="navbar__mobile-menu">
+          <div class="navbar__mobile-menu-toggle">
+            <i class="fas fa-bars fa-2x"></i>
+          </div>
+          <!-- Mobile Menu Items -->
+          <div class="navbar__mobile-menu-items">
+            <ul class="navbar__mobile-menu-list">
+              <li class="navbar__mobile-menu-item">
+                <a href="index.html" class="navbar__mobile-menu-link">Home</a>
+              </li>
+              <li class="navbar__mobile-menu-item">
+                <a href="index.html#features" class="navbar__mobile-menu-link"
+                  >Features</a
+                >
+              </li>
+              <li class="navbar__mobile-menu-item">
+                <a href="index.html#details" class="navbar__mobile-menu-link"
+                  >Details</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </navbar>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero__container container">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            Dein
+            <span class="hero__title--primary">Bürgerservice</span> Assistant Toni
+          </h1>
+          <p class="hero__description">
+            Unser digitaler Assistent Toni macht den BürgerService einfacher und schneller. 
+            Ob Anträge, Informationen oder Terminvereinbarungen – mit nur wenigen Klicks erhalten Sie genau die Unterstützung, die Sie brauchen.
+            Rund um die Uhr verfügbar, benutzerfreundlich und ohne lange Wartezeiten. Starten Sie jetzt und erledigen Sie Ihr Anliegen bequem online!
+          </p>
+          <div class="hero__buttons">
+            <a href="./client.html" class="hero__button btn">
+              <i class="fa-brands"></i> Client Seite
+            </a>
+            <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/12/20/20250312205835-DSJL6Q9K.json" class="hero__button btn">
+              <i class="fa-brands"></i> Mitarbeiter seite
+            </a>
+          </div>
+        </div>
+        <div class="hero__image">
+          <img src="./images/ux_design.png" alt="Bürgerservice" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Features -->
+  <section class="features" id="features">
+    <div class="features__container container">
+      <div class="features__content">
+        <h2 class="features__title">Vorteile mit Toni</h2>
+        <!-- <p class="features__description">
+          Die Vorteile von Toni, unseren Bürgerservice Assistenten sind Zahlreich. Darunter gehören: 
+        </p> -->
+        <div class="features__grid">
+          <div class="features__grid-item">
+            <div class="features__grid-item-text">
+              <div class="features__grid-item-icon">
+                <i class="fas fa-rocket fa-4x"></i>
+              </div>
+              <h4 class="features__grid-item-text-title">Zussammenfasung von Dokumenten</h4>
+              <p class="features__grid-item-text-description">
+                Access real-time data instantly, ensuring you're always up-to-date.
+              </p>
+            </div>
+          </div>
+
+          <div class="features__grid-item">
+            <div class="features__grid-item-text">
+              <div class="features__grid-item-icon">
+                <i class="fas fa-code fa-4x"></i>
+              </div>
+              <h4 class="features__grid-item-text-title">Antworten auf Ihre Fragen</h4>
+              <p class="features__grid-item-text-description">
+                Customize your workspace with our intuitive visual editor.
+              </p>
+            </div>
+          </div>
+          <div class="features__grid-item">
+            <div class="features__grid-item-text">
+              <div class="features__grid-item-icon">
+                <i class="fas fa-gem fa-4x"></i>
+              </div>
+              <h4 class="features__grid-item-text-title">24/7 Erreichbarkeit</h4>
+              <p class="features__grid-item-text-description">
+                Access a wide range of refined options to tailor Toni to your needs.
+              </p>
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Modal -->
+    <div class="modal" id="videoModal">
+      <div class="modal__content">
+        <span class="modal__close-button">&times;</span>
+        <iframe
+          src=""
+          frameborder="0"
+          id="videoPlayer"
+          width="560"
+          height="315"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    
+    
+    <!-- Details -->
+    <section class="details" id="details">
+      <div class="details__container container">
+        <div class="details__grid">
+          <!-- Grid Item 1 -->
+          <div class="details__grid-image">
+            <img src="./images/behördenMap.png" alt="Toni App" />
+          </div>
+          <!-- Grid Item 2 -->
+          <div class="details__grid-content">
+            <h3 class="details__grid-heading">
+              Benutze Toni, um zu sehen, welche Behörden ausgelastet sind
+            </h3>
+            <p class="details__grid-description">
+              Toni zeigt dir auf einer Karte, welche Behörden gerade viel zu tun haben und wo es schneller geht. So kannst du Wartezeiten vermeiden und deine Termine besser planen.
+            </p>            
+            <a href="details.html" class="details__grid-button btn">Mehr</a>
+          </div>
+          <!-- Grid Item 3 -->
+          <div class="details__grid-content">
+            <h3 class="details__grid-heading">
+              Termin reservierung
+            </h3>
+            <p class="details__grid-description">
+              Toni gibt dir feedback yuruck wenn du ein Dokument fehlerhaft ausgefüllt hast oder eine gewisse Sache vergessen hast.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+              consequuntur? Sint nostrum temporibus eum laudantium, quaerat
+              voluptates officia modi perspiciatis!
+            </p>
+            <a href="details.html" class="details__grid-button btn">Mehr</a>
+          </div>
+          <!-- Grid Item 4 -->
+          <div class="details__grid-image">
+            <img src="./images/details-2.png" alt="Toni App" />
+          </div>
+        </div>
+
+        <!-- Icons -->
+        <div class="details__icons">
+          <div class="details__icons-item">
+            <i class="fas fa-users fa-4x"></i>
+            <div class="details__icons-amount">55, 000</div>
+            <h4 class="details__icons-title">Glückliche Nutzer</h4>
+          </div>
+          <div class="details__icons-item">
+            <i class="fas fa-code fa-4x"></i>
+            <div class="details__icons-amount">5845</div>
+            <h4 class="details__icons-title">Termine vereinbart</h4>
+          </div>
+          <div class="details__icons-item">
+            <i class="fas fa-comments fa-4x"></i>
+            <div class="details__icons-amount">788</div>
+            <h4 class="details__icons-title">Positive Reviews</h4>
+          </div>
+          <div class="details__icons-item">
+            <i class="fas fa-rocket fa-4x"></i>
+            <div class="details__icons-amount">100</div>
+            <h4 class="details__icons-title">Case Studies</h4>
+          </div>
+          <div class="details__icons-item">
+            <i class="fas fa-edit fa-4x"></i>
+            <div class="details__icons-amount">110</div>
+            <h4 class="details__icons-title">Press Article</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SCREENSHOTS -->
+    <section class="screenshots" id="screenshots">
+      <div class="screenshots__container container">
+        <div class="screenshots__content">
+          <h2 class="screenshots__title">Screenshots</h2>
+          <div class="screenshots__images">
+            <img src="./images/toni_appstore.png" alt="Screenshot" />
+            <img src="./images/screenshot-2.png" alt="Screenshot" />
+            <img src="./images/screenshot-3.png" alt="Screenshot" />
+            <!-- <img src="./images/screenshot-4.png" alt="Screenshot" /> -->
+            <!-- <img src="./images/screenshot-5.png" alt="Screenshot" /> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- VOICLE FLOW AI BOT-->
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '67d056afd3bcd1a045d1fff4' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              voice: {
+                url: "https://runtime-api.voiceflow.com"
+              }
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__social">
+          <a href="#" class="footer__social-link">
+            <i class="fa-brands fa-facebook fa-3x"></i>
+          </a>
+          <a href="#" class="footer__social-link">
+            <i class="fa-brands fa-instagram fa-3x"></i>
+          </a>
+          <a href="#" class="footer__social-link">
+            <i class="fa-brands fa-linkedin fa-3x"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
+
+<!--
+
+CORS - course 
+
+-->

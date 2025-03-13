@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bürgerdienst Assistent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Chat icon button */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #0078d7;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-button:hover {
+            background-color: #0063b1;
+            transform: scale(1.05);
+        }
+        
+        .chat-button i {
+            font-size: 24px;
+        }
+        
+        /* Chat window */
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 998;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+        
+        .chat-window.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        /* Chat header */
+        .chat-header {
+            padding: 15px;
+            background-color: #0078d7;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-header h3 {
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .close-button {
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        /* Chat messages area */
+        .chat-messages {
+            padding: 15px;
+            flex: 1;
+            overflow-y: auto;
+            background-color: #f5f5f5;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .user-message {
+            align-items: flex-end;
+        }
+        
+        .bot-message {
+            align-items: flex-start;
+        }
+        
+        .message-content {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 14px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .user-message .message-content {
+            background-color: #0078d7;
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .bot-message .message-content {
+            background-color: white;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message-time {
+            font-size: 11px;
+            color: #777;
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        
+        /* Chat input area */
+        .chat-input {
+            padding: 15px;
+            display: flex;
+            background-color: white;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        #message-input {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 10px 15px;
+            outline: none;
+            font-size: 14px;
+        }
+        
+        #message-input:focus {
+            border-color: #0078d7;
+        }
+        
+        .send-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        .send-button:hover {
+            background-color: #0063b1;
+        }
+        
+        /* Typing indicator */
+        .typing {
+            display: flex;
+            padding: 10px 15px;
+            background-color: white;
+            border-radius: 18px;
+            border-bottom-left-radius: 5px;
+            width: fit-content;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #888;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: typingAnimation 1.5s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typingAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+        
+        /* Media queries for responsiveness */
+        @media (max-width: 480px) {
+            .chat-window {
+                width: 90%;
+                height: 80%;
+                right: 5%;
+                bottom: 10%;
+            }
+            
+            .chat-button {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Chat button -->
+    <div class="chat-button" id="chat-button">
+        <i class="fas fa-comments"></i>
+    </div>
+    
+    <!-- Chat window -->
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <h3>Bürgerdienst Assistent</h3>
+            <span class="close-button" id="close-button">×</span>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- Bot welcome message -->
+            <div class="message bot-message">
+                <div class="message-content">
+                    Willkommen! Wie kann ich Ihnen heute helfen?
+                </div>
+                <div class="message-time">Jetzt</div>
+            </div>
+            
+            <!-- Typing indicator -->
+            <div class="typing" id="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Schreiben Sie Ihre Nachricht..." autocomplete="off">
+            <button class="send-button" id="send-button">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Botpress container if you still need it -->
+    <div id="botpress-container" style="display: none;"></div>
+    
+    <!-- Your existing scripts -->
+    <script src="./js/bot_init.js"></script>
+    
+    <!-- Chat UI Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatButton = document.getElementById('chat-button');
+            const chatWindow = document.getElementById('chat-window');
+            const closeButton = document.getElementById('close-button');
+            const sendButton = document.getElementById('send-button');
+            const messageInput = document.getElementById('message-input');
+            const chatMessages = document.getElementById('chat-messages');
+            const typingIndicator = document.getElementById('typing-indicator');
+            
+            // Toggle chat window
+            chatButton.addEventListener('click', function() {
+                chatWindow.classList.toggle('active');
+                messageInput.focus();
+            });
+            
+            // Close chat window
+            closeButton.addEventListener('click', function() {
+                chatWindow.classList.remove('active');
+            });
+            
+            // Send message function
+            function sendMessage() {
+                const message = messageInput.value.trim();
+                if (message.length === 0) return;
+                
+                // Add user message to chat
+                addMessage(message, 'user');
+                messageInput.value = '';
+                
+                // Show typing indicator
+                typingIndicator.style.display = 'flex';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Here you would integrate with your Botpress or other chatbot backend
+                // For demonstration, we'll simulate a response after a delay
+                setTimeout(function() {
+                    // Hide typing indicator
+                    typingIndicator.style.display = 'none';
+                    
+                    // Add bot response - this would come from your actual backend
+                    let botResponse = "Danke für Ihre Nachricht. Unser Team wird sich damit befassen.";
+                    
+                    // Simple pattern matching for demonstration
+                    if (message.toLowerCase().includes('hilfe') || message.toLowerCase().includes('help')) {
+                        botResponse = "Wie kann ich Ihnen helfen? Bitte teilen Sie mir Ihr Anliegen mit.";
+                    } else if (message.toLowerCase().includes('danke') || message.toLowerCase().includes('thank')) {
+                        botResponse = "Gerne! Haben Sie weitere Fragen?";
+                    }
+                    
+                    addMessage(botResponse, 'bot');
+                    
+                    // If using Botpress, you would integrate here
+                    if (window.botpress && typeof window.botpress.sendEvent === 'function') {
+                        // Send to Botpress
+                        window.botpress.sendEvent({ type: 'text', text: message });
+                    }
+                    
+                }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+            }
+            
+            // Add message to chat
+            function addMessage(text, sender) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.classList.add(sender + '-message');
+                
+                const now = new Date();
+                const timeString = now.getHours() + ':' + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
+                
+                messageElement.innerHTML = `
+                    <div class="message-content">${text}</div>
+                    <div class="message-time">${timeString}</div>
+                `;
+                
+                // Insert before typing indicator
+                chatMessages.insertBefore(messageElement, typingIndicator);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Send message on button click
+            sendButton.addEventListener('click', sendMessage);
+            
+            // Send message on Enter key
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // If you still want to use Botpress in the background
+            // This would receive messages from Botpress and display them
+            if (window.botpress) {
+                window.botpress.onEvent(function(event) {
+                    if (event.type === 'text') {
+                        addMessage(event.text, 'bot');
+                    }
+                });
+            }
+            
+            // Auto-open the chat after a short delay (optional)
+            setTimeout(function() {
+                chatWindow.classList.add('active');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
