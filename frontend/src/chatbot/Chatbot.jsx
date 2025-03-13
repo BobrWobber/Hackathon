@@ -3,43 +3,6 @@ import './css/styles.css';
 import { Link } from 'react-router-dom';
 
 const Chatbot = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.botpress.cloud/webchat/v1/inject.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      window.botpressWebChat.init({
-        botId: 'YOUR_BOTPRESS_BOT_ID',
-        hostUrl: 'https://cdn.botpress.cloud/webchat/v1',
-        messagingUrl: 'https://messaging.botpress.cloud',
-        clientId: 'YOUR_CLIENT_ID',
-        webhookId: 'YOUR_WEBHOOK_ID',
-        lazySocket: true,
-        themeName: 'prism',
-        stylesheet: 'https://webchat-styler-css.botpress.app/prod/code/90281be9-c517-47a6-b1dc-b18afc98d4c8/v39673/style.css',
-        frontendVersion: 'v1',
-        useSessionStorage: true,
-        theme: 'light',
-        themeColor: '#2563eb',
-      });
-
-      window.botpressWebChat.onEvent(
-        function (event) {
-          if (event.type === 'LIFECYCLE.LOADED') {
-            window.botpressWebChat.sendEvent({ type: 'LIFECYCLE.TOGGLE' });
-          }
-        },
-        ['LIFECYCLE.LOADED']
-      );
-    };
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <div>
       <navbar className="navbar">
@@ -163,50 +126,3 @@ const Chatbot = () => {
   );
 };
 
-
-// COMMENT JSX REACT SCRIPT
-import { useState } from 'react';
-
-import {
-  Webchat,
-  WebchatProvider,
-  Fab,
-  getClient,
-  Configuration,
-} from '@botpress/webchat';
-
-const clientId = "a7d07157-0a08-4434-b9f2-ac4f2fdd446c";
-
-const configuration: Configuration = {
-  color: '#000',
-};
-
-export default function App() {
-  const client = getClient({
-    clientId,
-  });
-
-  const [isWebchatOpen, setIsWebchatOpen] = useState(false);
-
-  const toggleWebchat = () => {
-    setIsWebchatOpen((prevState) => !prevState);
-  };
-
-  return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <WebchatProvider client={client} configuration={configuration}>
-        <Fab onClick={toggleWebchat} />
-        <div
-          style={{
-            display: isWebchatOpen ? 'block' : 'none',
-          }}
-        >
-          <Webchat />
-        </div>
-      </WebchatProvider>
-    </div>
-  );
-}
-
-
-export default Chatbot;
