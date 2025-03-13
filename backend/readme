@@ -1,0 +1,4 @@
+For endpoints run the following command to host it :
+
+
+uvicorn main:app --reload
