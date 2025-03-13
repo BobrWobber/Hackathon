@@ -1,36 +1,41 @@
 import React from 'react';
-import { Box, Flex, Text, Link, Button, VStack, HStack, Input } from "@chakra-ui/react";
+import { Box, Flex, Text, Button, VStack, IconButton } from "@chakra-ui/react";
+import '../css/dashboard.css';
+import HomePage from "./HomePage"
+import { IoIosArrowDropleft } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
-        <Flex height="100vh">
-            <Box  mt="20px" height="500px" divideY="4px" rounded="lg" width="250px" bg="blue.600" color="white" p="18px" boxShadow="lg">
-                <Text fontSize="2xl" mb="4">Menu</Text>
+        <Flex className="dashboard-container">
+            {/* Sidebar */}
+            <Box className="sidebar">
+                <Text className="sidebar-title">Sidebar</Text>
                 <VStack spacing="4" align="start">
-                    <Link href="#" display="block" py="2" color="white">Dashboard</Link>
-                    <Link href="#" display="block" py="2" color="white">Profile</Link>
-                    <Link href="#" display="block" py="2" color="white">Settings</Link>
-                    <Link href="#" display="block" py="2" color="white">Logout</Link>
+					<IconButton ><Link to={"HomePage"}><IoIosArrowDropleft /></Link></IconButton>	
+                    <Link href="#" className="sidebar-link">Dashboard</Link>
+                    <Link href="#" className="sidebar-link">Orders</Link>
+                    <Link href="#" className="sidebar-link">Products</Link>
+                    <Link href="#" className="sidebar-link">Customers</Link>
                 </VStack>
             </Box>
-            <Flex flex="1" direction="column" p="20px">
-                <HStack spacing="20px" mb="20px">
-                    <Box height="800px" rounded="lg" flex="1" border="1px solid #ccc" p="20px" boxShadow="lg">
-                        <Text textStyle="body" fontSize="2xl" mb="4">Summary</Text>
-                        <Text mb="4">This is the summary section. You can add details or an overview here.</Text>
-							<Box height="400px"rounded="lg" flex="1" border="1px solid #ccc" p="20px" boxShadow="lg">
-							</Box>
-                        <Button colorPalette="blue" variant="surface" p="20px" color="white">Get summary</Button>
+            {/* Main Content */}
+            <Box className="content">
+                <Flex className="content-row">
+                    {/* Summary Box */}
+                    <Box className="custom-box dark-box">
+                        <Text className="box-title">Summary</Text>
+                        <Text>This is the summary section. You can add details or an overview here.</Text>
+                        <Button className="btn-outline">Learn More</Button>
                     </Box>
-                    <Box height="800px" rounded="lg" flex="1" border="1px solid #ccc" p="20px" boxShadow="lg">
-                        <Text fontSize="2xl" mb="4">Transcript</Text>
-                        <Text mb="4">This is the transcript section. Full details or logs can be added here.</Text>
-						<Box height="400px"rounded="lg" flex="1" border="1px solid #ccc" p="20px" boxShadow="lg">
-							</Box>
-                        <Button position="absolute" bottom="" colorPalette="blue" variant="surface" p="20px" color="white">Get transcript</Button>
+                    {/* Transcript Box */}
+                    <Box className="custom-box dark-box">
+                        <Text className="box-title">Transcript</Text>
+                        <Text>This is the transcript section. Full details or logs can be added here.</Text>
+                        <Button className="btn-outline">Read More</Button>
                     </Box>
-                </HStack>
-            </Flex>
+                </Flex>
+            </Box>
         </Flex>
     );
 };

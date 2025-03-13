@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/styles.css';
+import ux_design from '../images/ux_design.png'
+import logo_design from '../images/toni_img.png'
+import appstore from '../images/toni_appstore.png'
+import map_card from '../images/behördenMap.png'
 import Dashboard from "./Dashboard"
+import { useVoiceflowBot } from '../hooks/voiceflow.js';
+
 
 const HomePage = () => {
+  // Initialize the Voiceflow bot
+  useVoiceflowBot();
   return (
     <div>
       <head>
@@ -23,14 +31,14 @@ const HomePage = () => {
           referrerpolicy="no-referrer"
         />
         <link rel="stylesheet" href="./css/styles.css" />
-        <link rel="icon" href="./images/toni_img.png" />
+        <link rel="icon" href={logo_design} />
         <title>Bürgerservice Toni | Kundensupport</title>
       </head>
       <body>
         <nav className="navbar">
           <div className="navbar__container container">
             <div className="navbar__logo">
-              {/* <img src="./images/toni_img.png" alt="" /> */}
+              {/* <img src={logo_design} alt="" /> */}
             </div>
             <div className="navbar__menu">
               <ul className="navbar__menu-list">
@@ -92,7 +100,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="hero__image">
-              <img src="./images/ux_design.png" alt="Bürgerservice" />
+              <img src={ux_design} alt="Bürgerservice" />
             </div>
           </div>
         </header>
@@ -166,7 +174,7 @@ const HomePage = () => {
             <div className="details__grid">
               {/* Grid Item 1 */}
               <div className="details__grid-image">
-                <img src="./images/behördenMap.png" alt="Toni App" />
+                <img src={map_card} alt="Toni App" />
               </div>
               {/* Grid Item 2 */}
               <div className="details__grid-content">
@@ -234,35 +242,15 @@ const HomePage = () => {
             <div className="screenshots__content">
               <h2 className="screenshots__title">Screenshots</h2>
               <div className="screenshots__images">
-                <img src="./images/toni_appstore.png" alt="Screenshot" />
-                <img src="./images/screenshot-2.png" alt="Screenshot" />
-                <img src="./images/screenshot-3.png" alt="Screenshot" />
+                <img src={appstore} alt="Screenshot" />
+                {/* <img src="./images/screenshot-2.png" alt="Screenshot" />
+                <img src="./images/screenshot-3.png" alt="Screenshot" /> */}
                 {/* <img src="./images/screenshot-4.png" alt="Screenshot" /> */}
                 {/* <img src="./images/screenshot-5.png" alt="Screenshot" /> */}
               </div>
             </div>
           </div>
         </section>
-
-        {/* VOICLE FLOW AI BOT*/}
-        <script type="text/javascript">
-          {`
-            (function(d, t) {
-                var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-                v.onload = function() {
-                  window.voiceflow.chat.load({
-                    verify: { projectID: '67d056afd3bcd1a045d1fff4' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production',
-                    voice: {
-                      url: "https://runtime-api.voiceflow.com"
-                    }
-                  });
-                }
-                v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-            })(document, 'script');
-          `}
-        </script>
 
         {/* Footer */}
         <footer className="footer">

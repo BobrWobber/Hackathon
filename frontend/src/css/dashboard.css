@@ -1,0 +1,75 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background-color: #212529;
+    padding: 1rem;
+    color: white;
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 0.5rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.sidebar-link.active {
+    background-color: #0d6efd;
+}
+
+.content {
+    margin-left: 280px;
+    padding: 2rem;
+    flex: 1;
+}
+
+.content-row {
+    display: flex;
+    gap: 20px;
+}
+
+.custom-box {
+    padding: 2rem;
+    border-radius: 10px;
+    width: 450px;
+    height: 550px;
+}
+
+.dark-box {
+    background-color: #212529;
+    color: white;
+}
+
+.light-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.btn-outline {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-outline-secondary {
+    background: none;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
