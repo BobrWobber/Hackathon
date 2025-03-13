@@ -1,14 +1,18 @@
 .dashboard-container {
     display: flex;
     height: 100vh;
+    max-width: 100%;
 }
 
 .sidebar {
     width: 280px;
+    min-width: 220px;
     height: 100vh;
     background-color: #212529;
     padding: 1rem;
     color: white;
+    z-index: 10;
+    position: relative;
 }
 
 .sidebar-title {
@@ -22,6 +26,11 @@
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-link:hover {
+    background-color: #343a40;
 }
 
 .sidebar-link.active {
@@ -29,21 +38,28 @@
 }
 
 .content {
-    margin-left: 280px;
-    padding: 2rem;
     flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .content-row {
     display: flex;
-    gap: 20px;
+    gap: 24px;
+    height: 100%;
+    padding: 0;
+    flex: 1;
 }
 
 .custom-box {
+    flex: 1;
     padding: 2rem;
     border-radius: 10px;
-    width: 450px;
-    height: 550px;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
 }
 
 .dark-box {
@@ -56,20 +72,112 @@
     border: 1px solid #dee2e6;
 }
 
+.box-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
 .btn-outline {
     background: none;
     border: 1px solid white;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.2s;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.btn-outline:hover {
+    background-color: white;
+    color: #212529;
 }
 
 .btn-outline-secondary {
     background: none;
     border: 1px solid #6c757d;
     color: #6c757d;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.2s;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Large screens (laptops/desktops, 1920x1080 and similar) */
+@media (min-width: 1600px) {
+    .content {
+        padding: 2.5rem 3rem;
+    }
+    
+    .content-row {
+        gap: 36px;
+    }
+    
+    .custom-box {
+        min-height: 650px;
+        padding: 2.5rem;
+    }
+    
+    .box-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* Medium screens (tablets, less than 992px) */
+@media (max-width: 992px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 1.5rem;
+        height: calc(100vh - 150px);
+    }
+    
+    .content-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .custom-box {
+        width: 100%;
+        margin-bottom: 1rem;
+        min-height: 300px;
+    }
+}
+
+/* Small screens (phones, less than 768px) */
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+    }
+    
+    .custom-box {
+        padding: 1.25rem;
+    }
+    
+    .sidebar-title {
+        font-size: 1.2rem;
+    }
+    
+    .btn-outline, .btn-outline-secondary {
+        width: 100%;
+        padding: 0.5rem 1rem;
+    }
 }

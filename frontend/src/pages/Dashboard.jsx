@@ -50,7 +50,7 @@ const Dashboard = () => {
             <Box className="sidebar">
                 <Text className="sidebar-title">Sidebar</Text>
                 <VStack spacing="4" align="start">
-					<IconButton ><Link to={"HomePage"}><IoIosArrowDropleft /></Link></IconButton>	
+					<IconButton ><Link to={"../"}><IoIosArrowDropleft /></Link></IconButton>
                     <Link href="#" className="sidebar-link">Dashboard</Link>
                     <Link href="#" className="sidebar-link">Orders</Link>
                     <Link href="#" className="sidebar-link">Products</Link>
@@ -70,7 +70,7 @@ const Dashboard = () => {
                     <Box className="custom-box dark-box">
                         <Text className="box-title">Transcript</Text>
                         <Text>This is the transcript section. Full details or logs can be added here.</Text>
-                        <Box flex="1" overflowY="auto" p="10px" border="1px solid #ccc" borderRadius="10px">
+                        <Box height="400px" flex="1" overflowY="auto" p="10px" border="1px solid #ccc" borderRadius="10px">
                             {transcript.map((message, index) => (
                                 <Message key={index} text={message.text} isUser={message.isUser} />
                             ))}

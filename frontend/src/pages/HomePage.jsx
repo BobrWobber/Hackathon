@@ -83,7 +83,7 @@ const HomePage = () => {
             <div className="hero__content">
               <h1 className="hero__title">
                 Dein
-                <span className="hero__title--primary">Bürgerservice</span> Assistant Toni
+                <span className="hero__title--primary"> Bürgerservice</span> Assistant Toni
               </h1>
               <p className="hero__description">
                 Unser digitaler Assistent Toni macht den BürgerService einfacher und schneller. 
@@ -185,23 +185,6 @@ const HomePage = () => {
                   Toni zeigt dir auf einer Karte, welche Behörden gerade viel zu tun haben und wo es schneller geht. So kannst du Wartezeiten vermeiden und deine Termine besser planen.
                 </p>            
                 <Link to="details.html" className="details__grid-button btn">Mehr</Link>
-              </div>
-              {/* Grid Item 3 */}
-              <div className="details__grid-content">
-                <h3 className="details__grid-heading">
-                  Termin reservierung
-                </h3>
-                <p className="details__grid-description">
-                  Toni gibt dir feedback yuruck wenn du ein Dokument fehlerhaft ausgefüllt hast oder eine gewisse Sache vergessen hast.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-                  consequuntur? Sint nostrum temporibus eum laudantium, quaerat
-                  voluptates officia modi perspiciatis!
-                </p>
-                <Link to="details.html" className="details__grid-button btn">Mehr</Link>
-              </div>
-              {/* Grid Item 4 */}
-              <div className="details__grid-image">
-                <img src="./images/details-2.png" alt="Toni App" />
               </div>
             </div>
 
