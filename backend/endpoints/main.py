@@ -1,7 +1,6 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import StreamingResponse
 from pymongo import MongoClient
-from bson import ObjectId
 import io
 
 app = FastAPI()

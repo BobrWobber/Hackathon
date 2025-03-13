@@ -60,28 +60,23 @@ const Menu = () => {
   }
 
 const Dashboard = () => {
-
-	const [transcript, setTranscript] = useState([]); // non empty string, but  empty array "([])"
-
-    // useEffect(() => {
-    //     // Fetch the JSON data from the backend
-    //     fetch('/path/to/your/json/file')
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             // Assuming the JSON data has a 'transcript' field
-    //             setTranscript(data.transcript);
-    //         })
-    //         .catch(error => console.error('Error fetching transcript:', error));
-    // }, []);
+	
+	const [transcript, setTranscript] = useState([]);
 
     useEffect(() => {
-        const fetchMockData = async () => {
-            const mockData = await import('./mockData.json'); // check if json changed and refresh
-            setTranscript(mockData.transcript);
+        const fetchMessages = async () => {
+            try {
+                const response = await fetch('http://localhost:8000/get_conversation_messages/');
+                const data = await response.json();
+                setTranscript(data.messages);
+            } catch (error) {
+                console.error('Error fetching transcript:', error);
+            }
         };
 
-        fetchMockData();
+        fetchMessages();
     }, []);
+ 
 
     return (
         <Flex className="dashboard-container">
