@@ -39,19 +39,19 @@ const Menu = () => {
           </Button>
         </MenuTrigger>
         <MenuContent bg="purple.200">
-          <MenuItem color="black" value="new-txt" style={{ padding: '25px', fontSize: '18px' }}>
+          <MenuItem color="black" value="new-txt" style={{ padding: '25px', fontSize: '20px' }}>
             <span style={{ fontSize: '24px' }}>🤖</span> SMART CHATBOT FOR INITIAL SUPPORT, trained on documents, FAQs and procedures
           </MenuItem>
-          <MenuItem color="black" value="new-file" style={{ padding: '25px', fontSize: '18px' }}>
+          <MenuItem color="black" value="new-file" style={{ padding: '25px', fontSize: '20px' }}>
             <span style={{ fontSize: '24px' }}>🪪</span> Scan Documents, provide Key Details and Auto-Fill Forms
           </MenuItem>
-          <MenuItem color="black" value="new-win" style={{ padding: '25px', fontSize: '18px' }}>
+          <MenuItem color="black" value="new-win" style={{ padding: '25px', fontSize: '20px' }}>
             <span style={{ fontSize: '24px' }}>🧑‍💻️</span> Quick Resolution before to pass to real Agent
           </MenuItem>
-          <MenuItem color="black" value="open-file" style={{ padding: '25px', fontSize: '18px' }}>
+          <MenuItem color="black" value="open-file" style={{ padding: '25px', fontSize: '20px' }}>
             <span style={{ fontSize: '24px' }}>📝</span> Smart Note-Taking and Summarization to avoid repetitions
           </MenuItem>
-          <MenuItem color="black" value="export" style={{ padding: '25px', fontSize: '18px' }}>
+          <MenuItem color="black" value="export" style={{ padding: '25px', fontSize: '20px' }}>
             <span style={{ fontSize: '24px' }}>🚨</span> Detect Emotions of Client and Activate Emergency Chat
           </MenuItem>
         </MenuContent>
@@ -86,7 +86,7 @@ const Dashboard = () => {
     return (
         <Flex className="dashboard-container">
             {/* Sidebar */}
-            <Box className="sidebar">
+            <Box divideColor="red.200" divideY="3px" className="sidebar">
                 <Text className="sidebar-title">Sidebar</Text>
                 <VStack spacing="4" align="start">
 					<IconButton bg="#212529"><Link to={"../"}><IoIosArrowDropleft /></Link></IconButton>
