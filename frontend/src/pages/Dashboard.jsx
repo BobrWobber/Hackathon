@@ -50,7 +50,7 @@ const Dashboard = () => {
             <Box className="sidebar">
                 <Text className="sidebar-title">Sidebar</Text>
                 <VStack spacing="4" align="start">
-					<IconButton ><Link to={"../"}><IoIosArrowDropleft /></Link></IconButton>
+					<IconButton bg="#212529"><Link to={"../"}><IoIosArrowDropleft /></Link></IconButton>
                     <Link href="#" className="sidebar-link">Dashboard</Link>
                     <Link href="#" className="sidebar-link">Orders</Link>
                     <Link href="#" className="sidebar-link">Products</Link>
