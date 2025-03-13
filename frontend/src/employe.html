@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Sidebar with Styled Boxes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    
+    
+    <style>
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            position: fixed;
+            background-color: #212529; /* Dark theme */
+            padding: 1rem;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar a.active {
+            background-color: #0d6efd;
+            border-radius: 5px;
+        }
+        .content {
+            margin-left: 280px;
+            padding: 2rem;
+        }
+        .custom-box {
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .dark-box {
+            background-color: #212529;
+            color: white;
+            width: 450px;
+            height: 550px;
+        }
+        .light-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            width: 450px;
+            height: 550px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar d-flex flex-column p-3 text-white">
+            <a href="#" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+                <!-- <i class="bi bi-bootstrap fs-4"></i> -->
+                <span class="fs-4 ms-2">Sidebar</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white active">
+                        <i class="bi bi-house-door"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-basket"></i> Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-box-seam"></i> Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-people"></i> Customers
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content container">
+            <div class="row">
+                <!-- Summary Box -->
+                <div class="col-md-6">
+                    <div class="custom-box dark-box">
+                        <h4>Summary</h4>
+                        <p>This is the summary section. You can add details or an overview here.</p>
+                        <button class="btn btn-outline-light">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Transcript Box -->
+                <div class="col-md-6">
+                    <div class="custom-box light-box">
+                        <h4>Transcript</h4>
+                        <p>This is the transcript section. Full details or logs can be added here.</p>
+                        <button class="btn btn-outline-secondary">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
