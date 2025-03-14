@@ -81,7 +81,7 @@ const Dashboard = () => {
 					<Link href="#" className="sidebar-link">Dashboard</Link>
 					<Link href="#" className="sidebar-link">Orders</Link>
 					<Link href="#" className="sidebar-link">Products</Link>
-					<Link href="#" className="sidebar-link">Customers</Link>
+                    <Link to="../Technicals" className="sidebar-link" target="_blank">Technicals</Link> {/* Link to the PNG image */}
 					<Menu />
 				</VStack>
 			</Box>
