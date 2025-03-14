@@ -9,6 +9,16 @@ run:
 ```sh
 npm run dev
 ```
+run bot:
+```sh
+streamlit run test_save.py
+```
+
+run uvicorn:
+```sh
+uvicorn main:app --reload
+```
+
 
 
 Customer relationship management (CRM) is a strategic process that organizations use to manage, analyze, and improve their interactions with customers.
