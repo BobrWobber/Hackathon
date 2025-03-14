@@ -5,6 +5,10 @@ import HomePage from "./HomePage"
 import { IoIosArrowDropleft } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import mockData from './mockData.json';
+import { LuSquareArrowOutDownRight } from "react-icons/lu";
+import { BsChatDots } from "react-icons/bs";
+import Example from "./Example"
+
 import {
 	MenuContent,
 	MenuItem,
@@ -98,19 +102,24 @@ const Dashboard = () => {
                     {/* Summary Box */}
                     <Box className="custom-box dark-box">
                         <Text className="box-title">Summary</Text>
-                        <Text>This is the summary section. You can add details or an overview here.</Text>
-                        <Button className="btn-outline">Learn More</Button>
+                        <Text>This is the summary section elaborated from the AI model to provide Key info of the customer query:</Text>
+						<Box mt="20px" height="400px" flex="1" overflowY="auto" p="10px" border="1px solid #ccc" borderRadius="10px">
+                            {transcript.map((message, index) => (
+                                <Message key={index} text={message.text} isUser={message.isUser} />
+                            ))}
+						</Box>
+						<Link to={"../Example"}>
+                        <Button className="btn-outline">Continue Chat</Button></Link>
                     </Box>
                     {/* Transcript Box */}
                     <Box className="custom-box dark-box">
                         <Text className="box-title">Transcript</Text>
                         <Text>This is the transcript section. Full details or logs can be added here.</Text>
-                        <Box height="400px" flex="1" overflowY="auto" p="10px" border="1px solid #ccc" borderRadius="10px">
+                        <Box mt="20px" height="400px" flex="1" overflowY="auto" p="10px" border="1px solid #ccc" borderRadius="10px">
                             {transcript.map((message, index) => (
                                 <Message key={index} text={message.text} isUser={message.isUser} />
                             ))}
 						</Box>
-						<Button className="btn-outline">Read More</Button>
                     </Box>
                 </Flex>
             </Box>
