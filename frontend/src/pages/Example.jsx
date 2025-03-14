@@ -98,9 +98,15 @@ const Dashboard = () => {
 						<Text mt="5px">📁 DETECTION EMPTY PLACES</Text>
 						<Text mt="5px">🔎 PROCESS LAWS WHICH CAN BE APPLIED</Text>
 						<Box mt="20px" height="400px" flex="1" overflowY="auto" p="10px" border="1px solid #ccc" borderRadius="10px">
-							<Text>The user is filling out their Elster tax return in Germany 📝 and needed guidance. They have two children 👶👶 and wanted to know about the available tax benefits, like the Kinderfreibetrag (child tax allowance) and Kindergeld (child benefit) 💰. Since both parents work 💼, they will file a joint tax return 👩‍💼👨‍💼 to possibly benefit from the splitting tariff for lower taxes 📉. They also inquired about claiming deductions for work-related expenses 💼, childcare costs 🧸, and education expenses 🎓. The deadline for submitting is July 31st ⏰, unless a tax advisor is used.</Text>
+						<Text>
+						  The user is filling out their Elster tax return in Germany and needed guidance.<br />
+						  They have two children 👶👶 and wanted to know about the available tax benefits, like the Kinderfreibetrag (child tax allowance) and Kindergeld (child benefit) 💰.<br />
+						  Since both parents work 💼, they will file a joint tax return 👩‍💼👨‍💼 to possibly benefit from the splitting tariff for lower taxes 📉.<br />
+						  They also inquired about claiming deductions for work-related expenses 💼, childcare costs 🧸, and education expenses 🎓.<br />
+						  The deadline for submitting is July 31st ⏰, unless a tax advisor is used.
+						</Text>
 						</Box>
-						<IconButton bg="white" mt="10px">Continue Chat<BsChatDots /></IconButton>
+						<IconButton bg="blue.300" mt="10px">Continue Chat<BsChatDots /></IconButton>
 					</Box>
 					{/* Transcript Box */}
 					<Box className="custom-box dark-box">

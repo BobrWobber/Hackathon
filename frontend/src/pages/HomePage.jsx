@@ -94,7 +94,7 @@ const HomePage = () => {
                 <Link to="./Dashboard" className="hero__button btn">
                   <i className="fa-brands"></i> Employee Dashboard
                 </Link>
-                <Link to="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/12/20/20250312205835-DSJL6Q9K.json" className="hero__button btn">
+                <Link to="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/14/09/20250314090706-AN1K3RI9.json" className="hero__button btn">
                   <i className="fa-brands"></i> Chat Assistant
                 </Link>
               </div>
